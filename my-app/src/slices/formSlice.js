@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@redux/toolkit";
 export const formSlice = createSlice({
     name: "form",
     initialState: {

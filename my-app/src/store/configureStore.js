@@ -1,8 +1,11 @@
-// src/store/configureStore.js
-
-import { createStore } from 'redux';
-import rootReducer from '../reducers';
-
-const store = createStore(rootReducer);
-
-export default store;
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "../slices/userSlice";
+import fieldsReducer from "../slices/fieldSlice";
+import formReducer from "../slices/formSlice";
+export const store = configureStore({
+    reducer: {
+        user: userReducer,
+        fields: fieldsReducer,
+        form: formReducer,
+    },
+});

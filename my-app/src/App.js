@@ -1,22 +1,28 @@
-// src/App.js
+import './App.css';
+import React, { useState } from 'react';
+import Fields from './components/Fields';
+import Dropdown from './components/Dropdown';
 
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './store/configureStore.js';
-import Dropdown from './components/Dropdown.js';
-
-const App = () => {
+function App() {
+    const [selectedOption, setSelectedOption] = useState(null);
+    const handleSelect = (option) => {
+        setSelectedOption(option);
+    };
     return ( <
-        Provider store = { store } >
+        >
         <
-        div className = "App" >
+        div className = 'main' >
         <
-        h1 > React Redux Dropdown Menu < /h1> <
-        Dropdown / >
+        div className = 'main-content' >
+        <
+        Dropdown onSelect = { handleSelect }
+        /> <
+        Fields / >
         <
         /div> <
-        /Provider>
+        /div> <
+        />
     );
-};
+}
 
 export default App;

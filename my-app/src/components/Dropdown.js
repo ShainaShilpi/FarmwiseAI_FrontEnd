@@ -1,31 +1,21 @@
-// src/components/Dropdown.js
+import React from "react";
+import logo from "../assets/logo.jpg"
 
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectOption } from '../actions/dropdownActions.js';
-
-const Dropdown = () => {
-    const dispatch = useDispatch();
-    const selectedOption = useSelector(state => state.dropdown.selectedOption);
-
-    const handleChange = (e) => {
-        dispatch(selectOption(e.target.value));
-    };
-
+const Dropdown = ({ onSelect }) => {
     return ( <
-        div >
+        >
         <
-        h3 > Dropdown Menu < /h3> <
-        select value = { selectedOption }
-        onChange = { handleChange } >
+        select class = "role-drop"
+        onChange = { e => onSelect(e.target.value) } >
         <
-        option value = "" > Select an option < /option> <
-        option value = "option1" > Option 1 < /option> <
-        option value = "option2" > Option 2 < /option> <
-        option value = "option3" > Option 3 < /option> <
+        option class = "role"
+        value = "student" > Student < /option> <
+        option class = "role"
+        value = "selfEmployed" > Salaried < /option> <
+        option class = "role"
+        value = "business" > Business < /option> <
         /select> <
-        p > Selected option: { selectedOption } < /p> <
-        /div>
+        />
     );
 };
 
